@@ -31,4 +31,4 @@ def train_decision_tree():
 if __name__ == "__main__":
     y_test, predictions = train_decision_tree()
     acc = accuracy_score(y_test,predictions)
-    print(acc)
+    print(y_test, predictions, acc)
