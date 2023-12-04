@@ -1,0 +1,38 @@
+# Python template
+# Ignore Python virtual environment
+venv/
+
+# Ignore compiled Python files
+*.pyc
+
+# Ignore pipenv lock file
+Pipfile.lock
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore coverage reports
+htmlcov/
+
+# Ignore PyCharm IDE files
+.idea/
+
+# Ignore Visual Studio Code settings
+.vscode/
+
+# Ignore log files
+*.log
+
+# Ignore compiled binaries
+*.exe
+*.dll
+
+# Ignore package-lock.json for npm
+package-lock.json
+
+# Ignore yarn.lock for yarn
+yarn.lock
+
+# Personal
+personal-notebook.ipynb
+.vsode
