@@ -44,6 +44,7 @@ def main():
     # Train the model on the seed data
     finetune_model = QuestionAnswerModel()
     finetune_model.load_question_answer_from_jsonlines("seed_lamini_docs.jsonl")
+    finetune_model.config['api_key'] = os.getenv('LAMINI_API_KEY')
 
     # Train the model
     start=time.time()
