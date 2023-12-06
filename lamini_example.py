@@ -8,23 +8,8 @@
 import os
 import dotenv
 import time
-import yaml
+import lamini
 from llama import QuestionAnswerModel
-
-def create_config_file():
-    dotenv.load_dotenv()
-    data = {
-        "key": os.getenv('LAMINI_API_KEY'),
-        "url": "https://api.powerml.co"
-    }
-
-
-    # Create the directory
-    os.makedirs(os.path.expanduser('/.lamini'), exist_ok=True)
-
-    # Write the data to the YAML file
-    with open('/.lamini/configure.yaml', 'w') as file:
-        yaml.dump(data, file)
 
 def download_files_from_google_drive():
     os.system("""
@@ -49,8 +34,9 @@ def print_inference(question, finetune_answer, base_answer):
     print("-"*100)
 
 def main():
-    # Create the config file
-    create_config_file()
+    # Load the API key
+    dotenv.load_dotenv()
+    lamini.api_key = os.getenv("LAMINI_API_KEY")
 
     # Download the seed data
     download_files_from_google_drive()
