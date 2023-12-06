@@ -1,4 +1,3 @@
-scikit-learn
 os
 time
 python-dotenv
