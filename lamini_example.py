@@ -8,25 +8,7 @@
 import os
 import dotenv
 import time
-import yaml
 from llama import QuestionAnswerModel
-
-def create_config_file():
-    dotenv.load_dotenv()
-    data = {
-        "production": {
-            "key": os.getenv('LAMINI_API_KEY'),
-            "url": "https://api.powerml.co"
-        }
-    }
-    print(os.getenv('LAMINI_API_KEY'))
-
-    # Create the directory
-    os.makedirs(os.path.expanduser('~/.lamini'), exist_ok=True)
-
-    # Write the data to the YAML file
-    with open('~/.lamini/configure.yaml', 'w') as file:
-        yaml.dump(data, file)
 
 def download_files_from_google_drive():
     os.system("""
