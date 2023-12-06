@@ -1,4 +1,4 @@
-scikit-learn # only for simple-example
+scikit-learn
 os
 time
 python-dotenv
