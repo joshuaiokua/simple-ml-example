@@ -52,7 +52,7 @@ def print_inference(question, finetune_answer, base_answer):
 
 def main():
     # Create the config file
-    create_config_file()
+    dotenv.load_dotenv()
 
     # Download the seed data
     download_files_from_google_drive()
