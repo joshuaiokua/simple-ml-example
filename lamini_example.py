@@ -32,7 +32,7 @@ def print_inference(question, finetune_answer, base_answer):
     print("Base model answer: ", base_answer)
     print("-"*100)
 
-if __name__ == "lamini_example":
+def main():
     dotenv.load_dotenv()
     download_files_from_google_drive()
 
@@ -43,8 +43,10 @@ if __name__ == "lamini_example":
     # Train the model
     start=time.time()
     finetune_model.train(enable_peft=True)
-    #print(f"Time taken: {time.time()-start} seconds")
+    print(f"Time taken: {time.time()-start} seconds")
 
     # Evaluate base and finetuned models to compare performance
     results = finetune_model.get_eval_results()
     print_training_results(results)
+
+main()
