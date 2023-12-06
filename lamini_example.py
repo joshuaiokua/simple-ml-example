@@ -12,10 +12,10 @@ from llama import QuestionAnswerModel
 
 def download_files_from_google_drive():
     os.system("""
-    wget -q -O "seed_lamini_docs.jsonl" "https://drive.google.com/uc?export=download&id=1SfGp1tVuLTs0WYDugZcxX-EHrmDtYrYJ"
-    wget -q -O "seed_taylor_swift.jsonl" "https://drive.google.com/uc?export=download&id=119sHYYImcXEbGyvS3wWGpkSEVIFdLy6Z"
-    wget -q -O "seed_bts.csv" "https://drive.google.com/uc?export=download&id=1lblhdhKwoiOjlvfk8tr7Ieo4KpvjRm6n"
-    wget -q -O "seed_open_llm.jsonl" "https://drive.google.com/uc?export=download&id=1S7oPPko-UmOr-bqkZ_PREfGKO2f73ZiK"
+    gdown -q -O "seed_lamini_docs.jsonl" "https://drive.google.com/uc?export=download&id=1SfGp1tVuLTs0WYDugZcxX-EHrmDtYrYJ"
+    gdown -q -O "seed_taylor_swift.jsonl" "https://drive.google.com/uc?export=download&id=119sHYYImcXEbGyvS3wWGpkSEVIFdLy6Z"
+    gdown -q -O "seed_bts.csv" "https://drive.google.com/uc?export=download&id=1lblhdhKwoiOjlvfk8tr7Ieo4KpvjRm6n"
+    gdown -q -O "seed_open_llm.jsonl" "https://drive.google.com/uc?export=download&id=1S7oPPko-UmOr-bqkZ_PREfGKO2f73ZiK"
     """)
 
 def print_training_results(results):
