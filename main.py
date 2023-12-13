@@ -1,6 +1,7 @@
 from sklearn import datasets, tree
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
+import json
 
 def train_decision_tree():
     """
@@ -31,4 +32,17 @@ def train_decision_tree():
 if __name__ == "__main__":
     y_test, predictions = train_decision_tree()
     acc = accuracy_score(y_test,predictions)
-    print(y_test, predictions, acc)
+
+    # Save y_test, predictions, and acc as a dictionary
+    data = {
+        "y_test": y_test.tolist(),
+        "predictions": predictions.tolist(),
+        "acc": acc
+    }
+
+    # Convert the dictionary to JSON
+    json_data = json.dumps(data)
+
+    # Save the JSON data to a file
+    with open("output.json", "w") as file:
+        file.write(json_data)
