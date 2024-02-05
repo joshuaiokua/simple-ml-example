@@ -1,4 +1,4 @@
-lamini
+lamini==0.0.19
 python-dotenv
 gdown
 pydantic==1.10.13
