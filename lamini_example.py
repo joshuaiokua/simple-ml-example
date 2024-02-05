@@ -55,17 +55,17 @@ def main():
     download_files_from_google_drive()
 
     # Train the model on the seed data
-    finetune_model = QuestionAnswerModel()
-    finetune_model.load_question_answer_from_jsonlines("seed_lamini_docs.jsonl")
-
-    # Train the model
-    start=time.time()
-    finetune_model.train(enable_peft=True, config_file={
+    finetune_model = QuestionAnswerModel(config={
     "production": {
         "key": os.getenv("LAMINI_API_KEY"),
         "url": "https://api.powerml.co"
         }
     })
+    finetune_model.load_question_answer_from_jsonlines("seed_lamini_docs.jsonl")
+
+    # Train the model
+    start=time.time()
+    finetune_model.train(enable_peft=True)
     print(f"Time taken: {time.time()-start} seconds")
 
     # Evaluate base and finetuned models to compare performance
