@@ -9,6 +9,7 @@ import os
 import dotenv
 import time
 from llama import QuestionAnswerModel
+import yaml
 
 def download_files_from_google_drive():
     os.system("""
@@ -36,6 +37,20 @@ def main():
     # Create the config file
     dotenv.load_dotenv()
 
+    # config = {
+    # "production": {
+    #     "key": os.getenv("LAMINI_API_KEY"),
+    #     "url": "https://api.powerml.co"
+    #     }
+    # }
+
+    # keys_dir_path = '/root/.powerml'
+    # os.makedirs(keys_dir_path, exist_ok=True)
+
+    # keys_file_path = keys_dir_path + '/configure_llama.yaml'
+    # with open(keys_file_path, 'w') as f:
+    #     yaml.dump(config, f, default_flow_style=False)
+
     # Download the seed data
     download_files_from_google_drive()
 
@@ -45,7 +60,12 @@ def main():
 
     # Train the model
     start=time.time()
-    finetune_model.train(enable_peft=True)
+    finetune_model.train(enable_peft=True, config_file={
+    "production": {
+        "key": os.getenv("LAMINI_API_KEY"),
+        "url": "https://api.powerml.co"
+        }
+    })
     print(f"Time taken: {time.time()-start} seconds")
 
     # Evaluate base and finetuned models to compare performance
